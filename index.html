@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi chị Quỳnh</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: #f5f5f5;
+            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            width: min(100%, 430px);
+            padding: 42px 30px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 28px rgba(0,0,0,.045);
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            font-size: clamp(23px, 5vw, 29px);
+            font-weight: 600;
+            letter-spacing: -.4px;
+        }
+
+        p {
+            margin: 0 0 26px;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: 0;
+            border-radius: 7px;
+            background: #222;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background .15s ease;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #999;
+            outline-offset: 3px;
+        }
+
+        #message {
+            display: none;
+        }
+
+        #message.visible {
+            display: block;
+        }
+
+        #intro.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <!-- Màn hình mở đầu -->
+        <section id="intro">
+
+            <h1>Chị Quỳnh</h1>
+
+            <p>
+                Chị ấn vào đây giúp em một chút.
+            </p>
+
+            <button id="open">
+                Ấn vào
+            </button>
+
+        </section>
+
+
+        <!-- Nội dung sau khi nhấn -->
+        <section id="message" aria-live="polite">
+
+            <h1>Xàm!!!! </h1>
+
+            <button id="back">
+                Quay lại
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        // Lấy các phần tử HTML
+        const intro = document.getElementById('intro');
+        const message = document.getElementById('message');
+
+        // Khi nhấn nút Ấn vào
+        document.getElementById('open').addEventListener('click', () => {
+
+            intro.classList.add('hidden');
+
+            message.classList.add('visible');
+
+        });
+
+        // Khi nhấn nút Quay lại
+        document.getElementById('back').addEventListener('click', () => {
+
+            message.classList.remove('visible');
+
+            intro.classList.remove('hidden');
+
+        });
+
+    </script>
+
+</body>
+</html>
